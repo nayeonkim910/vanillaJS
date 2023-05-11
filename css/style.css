@@ -1,0 +1,583 @@
+/* 기본 설정 값 */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* Body--- */
+body{
+    background-color: rgb(61, 138, 215);
+    height: 100%;
+    width: 100%;
+}
+/* 🔥전체 컨테이너  박스 flex- columns     컨테이너 [north / panelBox(west/main/east) / south]*/ 
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+
+/* North--- */
+.north{
+    height: 30px;
+    width: 100%;
+    padding: 3px;
+}
+
+
+
+/* panelBox : West + Main + East --- */
+.panelBox{
+    margin: 0px 5px;
+    height: 100%;
+    /* flex-1 */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+        /* West */
+    .west__bar{
+        height: 100%;
+        background-color: #157fcc;
+        width: 40px;
+        font-weight: bold;
+        color: whitesmoke;
+        writing-mode: vertical-rl;   
+        transition: all 300ms ease;
+    }
+    .west__active{
+        left: 0px;
+    }
+    .east__active{
+        right: 0px;
+        
+    }
+            .west__bar i{
+                padding: 10px;
+                transform: translate(-50%,10%);
+            }
+            .panel i{
+                transform: translate(-10%,10%);
+            }
+            .west__bar span{
+                padding: 8px;
+                font-size: 18px;
+            }
+                /*[ west ]*/
+            .west{
+                width: 200px;
+                min-width: 200px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0;
+                z-index: 333;
+                background-color: white;
+                /* 사이드바 숨길 때 */
+                transition: all 300ms ease;
+            /*  */
+                left: 0px;
+
+            }
+                
+                .west__header{
+                    height: 40px;
+                    width: 100%;
+                    color: whitesmoke;
+                    background-color: #157fcc;
+                    padding: 5px;
+                    font-size: 14px;
+                    font-weight: bold; 
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
+                    .west__header i {
+                        height: 100%;
+                        width: 14%;
+                        padding-top: 13px;
+                        padding-left: 5px;
+                        cursor: pointer;
+                    }
+            .west__body{
+                    width: 100%;
+                    height: 90%;
+                    padding: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-shrink: 0;
+                    flex: 1;
+                }
+                    .panel{
+                        margin-bottom: 5px;
+                        width: 100%;
+                        /* padding: 6px; */
+                        position: relative;
+                        background-color: rgb(226, 240, 250);
+                        font-size: 13px;
+                        color: rgb(98, 98, 95);
+                        font-weight: bold;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                        .panel:hover{
+                            background-color: rgba(212, 244, 255, 0.465);
+                        }
+                        .panel span{  
+                            display: flex;
+                            align-items: center;
+                            margin-left: 5px;
+                            width: 100%;
+                        }
+                        .panel i {
+                            cursor: pointer;
+                            height: 100%;
+                            padding: 10px;
+                        }
+
+
+
+
+                    /* Main */
+    .main{
+        min-width: 0px;
+        width:80%;
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        border-top-left-radius: 6px;
+        flex: 1;
+        transition: all 300ms ease;
+    }
+
+            /* Main- Tabs */
+        /* main__tabber안에 main__tabbar__header랑 tabbar__strip있어 */
+        .main__tabbar{    
+            height: 35px;
+            position: relative;
+            background-color: #157fcc;
+        }
+                .main__tabbar__header{
+                    width: 500px;
+                    height: 100%;
+                    position: absolute;
+                    padding-top:6px;
+                }
+        .tab{
+            background-color: #4B9CD7;
+            width: 100px;
+            height: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: whitesmoke;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            height: 100%;
+            position: relative;
+            border-top-left-radius: 10%;
+            border-top-right-radius: 10%;
+        }
+            .tab:hover{
+                background-color: #e1e9ef85;
+                /* position: relative; */
+            }
+            .main__tabbar a span:first-child{
+                padding: 10px;
+            }
+            .tab1__btn__close{
+                font-size: 13px;
+                position: absolute;
+                top: 0;
+                right: 0px;
+                margin-right: 2px;
+            }
+                .tab1__btn__close:hover{
+                    background-color: rgb(205, 207, 208);
+                }
+            .main__tabbar__strip{
+                width: 100%;
+                height: 5px;
+                background-color: #add2ed;
+                position: absolute;
+                transform: translateY(31px);
+            }
+
+            /* Main- Contents*/
+            .main__content__a,
+            .main__content__b {
+                height: 100%;
+                overflow-y: auto;
+
+            }
+            .main__content p{
+                margin: 5px;
+                font-size: 12px; 
+
+            }
+            .main__content{
+            overflow-y: hidden;
+
+                height: 100%;
+            }
+            .main__content b{
+                font-size: 12px;
+            }
+            /* 숨길 때, */
+            .hidden{
+                display: none;
+            }
+
+
+            /* [ East-SubBar ] */
+    .east__bar{              
+        height: 100%;
+        width: 40px;
+        background-color: #157fcc;
+        font-weight: bold;
+        color: whitesmoke;
+        writing-mode: vertical-rl;
+        transition: all 300ms ease;
+    }
+            .east__bar i{
+                padding: 10px;
+                transform: translate(-50%,10%);
+
+            }
+            .east__bar span{
+                padding: 8px;
+                font-size: 18px;
+            }
+
+
+            /* [ East ] */
+    .east{
+        width: 225px;
+        min-width: 225px;
+        flex-shrink: 0;
+        z-index: 444;
+        right: 0px;
+        height: 100%;
+        background-color: white;
+        /* fade할 때 */ 
+        transition: all 300ms linear;
+        position: relative;
+    }
+
+            /* East-Header */
+            .east__header{
+                height: 40px;
+                width: 100%;
+                color: whitesmoke;
+                background-color: #157fcc;
+                padding: 5px;
+                font-size: 14px;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .east__header i{
+                height: 100%;
+                padding-top: 13px;
+                width: 12%;
+                padding-left: 5px;
+                cursor: pointer;
+                }
+                /* East-Toolbar */
+            .toolbar{
+                height: 40px;
+                width: 100%;
+                display: flex;
+                justify-content: right;
+                align-items: center;
+
+            }
+                #toolbar__btn{
+                    padding: 3px 5px;
+                    margin-right: 5px;
+                    border: none;
+                    font-weight: bold;
+                    background-color: #d8d8d85b;
+                    color: #5a5959;
+                    border: 1px solid #cdc6c679;
+                    border-radius: 3px;
+                    cursor: pointer;
+                }
+
+                /* East-Panel */
+            .east__panel{
+                font-size: 13px;
+                width: 100%;
+                max-height: 650px;
+
+            }
+            .east__tab{
+                margin: 5px;
+            }
+
+
+            /* East-table */
+        
+                        .nonvisible{
+                            visibility: hidden;
+                        }
+
+                .tb_btn{
+                    border: none;
+                    width: 100%;
+                    height: 100%;
+                    padding: 8px 50px 8px 0px;
+                    color: #5a5959;
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+                .tb_btn:focus{
+                    background-color: #d4e9f993;;
+                }
+                .arr{
+                    position: absolute;
+                }
+
+                /* East-table */
+                .east__table{
+                    margin: auto;
+                    width: 100%;
+                }
+                button:focus{
+                    border: none;
+                }
+                .east__table td{
+                    padding: 3px;
+                }
+                /* East-tabbar */
+                .east__tabbar{
+                    height: 39px;
+                    width: 100%;
+                    position: absolute;
+                    background-color: #157fcc;
+                    bottom: 0;
+                }
+
+                .east__tabbar .east__tabbar__header{
+                    height: 100%;
+                    /* position: absolute; */
+                }
+                .tab3,
+                .tab4{
+                    padding: 15px 10px;
+                    width: 50%;
+                    height: 100%;
+                    margin-right:2px;
+                    border-bottom-left-radius: 8%;
+                    border-bottom-right-radius: 8%;
+                    bottom: 0;
+                }
+                .east__tabbar__header a span:first-child{
+                    top: 8px;
+                    right: 5px;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+                .tab3{
+                    /* z-index: 20; */
+                }
+                    .tab4__btn__close{
+                        font-size: 13px;
+                        position: absolute;
+                        z-index: 5;
+                        /* padding: 3px; */
+                        /* transform: translate(5px,-5px); */
+                    }
+                    .tab4__btn__close:hover{
+                        background-color: rgb(205, 207, 208);
+                    }
+                .east__tabbar__strip{
+                    width: 100%;
+                    height: 6px;
+                    background-color: #add2ed;
+                }
+
+
+
+
+
+
+/* -------------------------------------------------- */
+            /* South */
+    .south{
+        height: 105px;
+        display: flex;
+        background-color: red;
+        flex-direction: column;
+        /* body크기인 65만큼만 내려둔 채로 시작. */
+        margin-bottom: -65px;             
+        width: 100%;
+        z-index: 999;
+
+        /* fadeDown시 */
+        transition: all 150ms linear;
+    }
+            /* South-Header */
+        .south__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* top: 0; */
+            height: 40px;
+            width: 100%;
+            color: whitesmoke;
+            padding: 12px;
+            background-color: rgb(12, 124, 203);
+            font-weight: bold;
+        }
+        .south__header i{
+            height: 100%;
+            padding: 10px;
+            transform: translate(-10%,10%);
+        }
+            /* South-body */
+        .south__body{
+            background-color: whitesmoke;
+            width: 100%;
+            padding: 5px;
+            height: 65px;
+        }
+
+/* -------------------------------------------------- */
+
+ /* 공통 사용 Spliter ✔ */
+    .splitter{
+        min-width: 8px; 
+        height: 100%;
+        right: auto; 
+        left: 767px; 
+        top: 32px; 
+        margin: 0px;
+        background-color: rgb(61, 138, 215);
+        display: flex;
+        align-items: center;
+        cursor: col-resize;
+    }
+        .addMarginLeft{
+            /* margin-left: 50px; */
+        }
+
+ /* 단일 사용 y_Spliter ✔ */
+
+    .y_splitter{
+        min-height: 8px; 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(61, 138, 215);
+        /* position: absolute; */
+        bottom: 40px;
+        z-index: 500;
+
+    }
+
+    /* 공통사용 PonterImg */
+    .pointerImg{
+        cursor: pointer;
+    }
+    /* 공통사용 sideBar (West,East) */
+    .sideBar{
+        z-index: 999;
+    }
+
+
+    /* --------------[슬라이드] fade 각 방향으로 사라지기*/
+    .fadeLeft{
+        left: -200px;
+        position: absolute;
+
+    }
+    .fadeRight{
+        /* margin-right: -225px; */
+        right: -225px;
+        position: absolute;
+    }
+    .fadeTop{
+        margin-bottom: 0px;
+    }
+
+    .slideWestToRight{
+       left:40px;
+        position: absolute;
+    }
+   
+   .slideEastToLeft{
+    right:40px;
+    position: absolute;
+   }
+
+    .slideSouthToTop{
+        bottom: 40px;
+    }
+    .mainSlideToLeft{
+        margin-left:-200px;
+    }
+    .mainSlideToRight{
+        margin-right: -225px;
+    } 
+    .hiddenSouth{
+        bottom: -65px;
+    }
+
+
+/* --------------------------------------그외 --------- */
+    /* [West-Body내부의 span] */
+    .west__body span {
+        z-index: -2;
+    }
+    /* [West]panel__body설정  -Accordion 설정 */
+    .panel__body{
+        height: 0;
+        width: 100%;
+        transition: all 250ms linear;
+        
+    }
+    /* [West]panel__body설정  -Accordion-각 제목*/
+
+    .panel__title{
+        z-index: 10;
+        height: 30px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+    /* [West]panel__body설정  -Accordion-각 제목 선택된 경우.*/
+    .active{
+        height: 84%;
+    }
+#secreet_south_panel{
+    background-color: rgb(118, 243, 124);
+    position: absolute;
+    z-index:-1;
+    width: 100%;
+    transition: all 300ms linear;
+}
+#secreet_south_header{
+    background-color: #157fcc;
+
+}
+
+
+/* 공통  탭 focus 색상 */
+a.tab:focus {
+    background-color: #add2ed;
+
+}
